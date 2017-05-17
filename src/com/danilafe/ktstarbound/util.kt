@@ -6,9 +6,9 @@ package com.danilafe.ktstarbound
  * of the first different pair of values.
  * Returns 0 on equality.
  */
-public fun compareByteArrays(a: ByteArray, b: ByteArray) : Int {
-    if(a.size != b.size) return Integer.compare(a.size, b.size)
-    return (0 .. a.size - 1)
+public fun compareByteArrays(a: ByteArray, b: ByteArray): Int {
+    if (a.size != b.size) return Integer.compare(a.size, b.size)
+    return (0..a.size - 1)
             .firstOrNull { a[it] != b[it] }
             ?.let { Integer.compare(a[it].toInt(), b[it].toInt()) }
             ?: 0

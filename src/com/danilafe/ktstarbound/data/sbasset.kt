@@ -24,7 +24,7 @@ public class SBAsset6(val file: File) {
         fileInfo = randomReder.serializedReadMap()!!
         numberFiles = randomReder.readLong()!!
         files = mutableMapOf()
-        for(i in 0 .. numberFiles - 1){
+        for(i in 0.. numberFiles - 1){
             val length = randomReder.readByte()!!
             val pathLength = randomReder.readString(length.toInt())!!
             files.put(pathLength, FileData(randomReder.readLong()!!, randomReder.readLong()!!))
