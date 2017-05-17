@@ -8,7 +8,9 @@ import java.util.*
 class ArrayReader(val array: ByteArray, var index: Int) : GenericReader() {
 
     override fun read(length: Int): ByteArray? {
-        return Arrays.copyOfRange(array, index, index + length)
+        val data = Arrays.copyOfRange(array, index, index + length)
+        if(data != null) index += length
+        return data
     }
 
     override fun advance(length: Long) {

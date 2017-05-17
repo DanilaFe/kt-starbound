@@ -73,6 +73,7 @@ public class RandomLeafReader(file: File, index: Long, val headerSize: Long, val
                 dataFile.seek(headerSize + block * blockSize + prefixSize)
             }
         }
+        accumulator.close()
         return accumulator.toByteArray()
     }
 
