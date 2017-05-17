@@ -1,6 +1,7 @@
 package com.danilafe.ktstarbound
 
 public sealed class Dynamic
+public object DynamicNull : Dynamic()
 public data class DynamicDouble(val data: Double) : Dynamic()
 public data class DynamicBoolean(val data: Boolean) : Dynamic()
 public data class DynamicVariableInt(val data: Long) : Dynamic()

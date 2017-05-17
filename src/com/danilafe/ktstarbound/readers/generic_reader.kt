@@ -125,7 +125,7 @@ public abstract class GenericReader {
     public fun serializedReadList(): List<Dynamic>? {
         val length = readVariableInt() ?: return null
         val list = mutableListOf<Dynamic>()
-        for (i in 0L..length) {
+        for (i in 0L..length - 1) {
             list.add(serializedReadDynamic() ?: return null)
         }
         return list
@@ -137,7 +137,7 @@ public abstract class GenericReader {
     public fun serializedReadMap(): Map<String, Dynamic>? {
         val length = readVariableInt() ?: return null
         val map = mutableMapOf<String, Dynamic>()
-        for (i in 0L..length) {
+        for (i in 0L..length - 1) {
             val key = serializedReadString()
             val value = serializedReadDynamic()
             if (key == null || value == null) return null
@@ -152,6 +152,7 @@ public abstract class GenericReader {
     public fun serializedReadDynamic(): Dynamic? {
         val type = readByte()?.toInt() ?: return null
         return when (type) {
+            1 -> DynamicNull
             2 -> {
                 val double = readDouble()
                 if (double != null) DynamicDouble(double) else null

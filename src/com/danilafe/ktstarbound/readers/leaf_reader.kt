@@ -53,7 +53,7 @@ public class RandomLeafReader(file: File, index: Long, val headerSize: Long, val
     }
 
     override fun read(length: Int): ByteArray? {
-        if (dataFile.length() - dataFile.filePointer <= length) return null
+        if (dataFile.length() - dataFile.filePointer < length) return null
         val accumulator = ByteArrayOutputStream(length)
         var remainingRead = length
         while (remainingRead > 0) {

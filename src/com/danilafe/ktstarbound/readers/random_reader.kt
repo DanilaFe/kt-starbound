@@ -16,7 +16,7 @@ public class RandomReader(file: File, index: Long) : GenericReader() {
     }
 
     override fun read(length: Int): ByteArray? {
-        if (dataFile.length() - dataFile.filePointer <= length) return null
+        if (dataFile.length() - dataFile.filePointer < length) return null
         val byteBuffer = ByteArray(length)
         dataFile.read(byteBuffer)
         return byteBuffer
