@@ -12,7 +12,13 @@ import java.nio.ByteBuffer
  */
 public class RandomLeafReader(file: File, index: Long, val headerSize: Long, val blockSize: Long, val prefixSize: Long) : GenericReader() {
 
+    /**
+     * The file used for access to the data.
+     */
     private val dataFile = RandomAccessFile(file, "r")
+    /**
+     * The current leaf block.
+     */
     private var block = (index - headerSize) / blockSize
 
     init {

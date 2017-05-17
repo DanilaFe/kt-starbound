@@ -21,11 +21,11 @@ public class VersionedData(reader: GenericReader) {
     /**
      * The data itself.
      */
-    public val data: Dynamic
+    public val rootElement: Dynamic
 
     init {
         reader.advance(1)
         version = reader.readInt()!!
-        data = reader.serializedReadDynamic()!!
+        rootElement = reader.serializedReadDynamic()!!
     }
 }

@@ -8,7 +8,7 @@ import java.io.File
 /**
  * A BTreeDB5 parser.
  * This class is able to open a Starbound B-Tree database
- * and read data from it.
+ * and read raw data from it.
  */
 public class BTreeDB5(val file: File) {
 
@@ -127,7 +127,7 @@ public class BTreeDB5(val file: File) {
                as expressions, so it's not possible to make a loop
                with an actual condition. */
             if (typeString == "II") {
-                /* Skips apparently unimportant data. */
+                /* Skips apparently unimportant data . */
                 reader.advance(1)
 
                 /* Initial bounds for low and high data in a BTree. */

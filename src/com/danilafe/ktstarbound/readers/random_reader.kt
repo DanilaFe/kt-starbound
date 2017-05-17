@@ -9,6 +9,9 @@ import java.io.RandomAccessFile
  */
 public class RandomReader(file: File, index: Long) : GenericReader() {
 
+    /**
+     * The file used to access data.
+     */
     private val dataFile = RandomAccessFile(file, "r")
 
     init {
