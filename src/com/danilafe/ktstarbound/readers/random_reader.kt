@@ -9,7 +9,7 @@ import java.io.RandomAccessFile
  */
 public class RandomReader(file: File, index: Long) : GenericReader() {
 
-    val dataFile = RandomAccessFile(file, "r")
+    private val dataFile = RandomAccessFile(file, "r")
 
     init {
         dataFile.seek(index)
