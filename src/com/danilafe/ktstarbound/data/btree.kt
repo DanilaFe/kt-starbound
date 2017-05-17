@@ -3,9 +3,7 @@ package com.danilafe.ktstarbound.data
 import com.danilafe.ktstarbound.compareByteArrays
 import com.danilafe.ktstarbound.readers.RandomLeafReader
 import com.danilafe.ktstarbound.readers.RandomReader
-import java.io.ByteArrayOutputStream
 import java.io.File
-import java.util.zip.Inflater
 
 /**
  * A BTreeDB5 parser.
@@ -193,21 +191,3 @@ public class BTreeDB5(val file: File) {
     }
 
 }
-
-fun main(args: Array<String>) {
-    val db = BTreeDB5(File("/Users/vanilla/Documents/Developer/Java/LibStarbound/sample.world"))
-    val data = db.get(ByteArray(5, { 0.toByte() }))
-    val decompressor = Inflater()
-    val output = ByteArrayOutputStream()
-    val buffer = ByteArray(2048)
-    decompressor.setInput(data)
-    var total = 0;
-    while (!decompressor.finished()) {
-        print(total)
-        total += 1
-        val bytesRead = decompressor.inflate(buffer)
-        output.write(buffer, 0, bytesRead)
-    }
-    print(db.name)
-}
-
