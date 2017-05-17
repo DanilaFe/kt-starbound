@@ -4,7 +4,7 @@ import com.danilafe.ktstarbound.Dynamic
 import com.danilafe.ktstarbound.readers.RandomReader
 import java.io.File
 
-public class SBAsset6(val file: File) {
+public class SBAsset6(file: File) {
 
     public data class FileData(val offset: Long, val length: Long)
 

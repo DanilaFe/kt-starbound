@@ -4,7 +4,7 @@ import com.danilafe.ktstarbound.data.internal.VersionedData
 import com.danilafe.ktstarbound.readers.RandomReader
 import java.io.File
 
-class SBVJ06(val file: File) {
+class SBVJ06(file: File) {
 
     public val keyString: String
     public val data: VersionedData
