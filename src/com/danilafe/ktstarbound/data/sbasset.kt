@@ -47,7 +47,7 @@ public class SBAsset6(file: File) {
         randomReder.move(metadataOffset)
         indexString = randomReder.readString(5)!!
         fileInfo = randomReder.serializedReadMap()!!
-        numberFiles = randomReder.readLong()!!
+        numberFiles = randomReder.readVariableInt()!!
         files = mutableMapOf()
         for(i in 0.. numberFiles - 1){
             val length = randomReder.readByte()!!
